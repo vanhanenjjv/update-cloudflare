@@ -4,7 +4,7 @@
   "description": "Updates IP address change to Cloudflare",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,7 @@
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cloudflare": "^2.4.1"
+  }
 }
