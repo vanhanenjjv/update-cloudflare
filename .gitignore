@@ -77,3 +77,6 @@ typings/
 
 # Webpack output
 dist/
+
+# The configuration file
+configuration.json
