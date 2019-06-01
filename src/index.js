@@ -1,3 +1,4 @@
+import { existsSync, readFileSync } from 'fs';
 import Cloudflare from 'cloudflare';
 import Axios from 'axios';
 
@@ -20,7 +21,7 @@ if (!argv['configuration'])
 if (!existsSync(argv['configuration']))
     throw new Error('Couldn\'t find the configuration file at "' + path + '".');
 
-const config = JSON.parse(readFileSync(path, 'utf8'));
+const config = JSON.parse(readFileSync(argv['configuration'], 'utf8'));
 
 //#endregion
 
@@ -60,5 +61,7 @@ Axios.get("https://ipinfo.io/json")
         ...record,
         content: ip
       });
+
+      console.log(`Updated the IP address of "${zone.name}" from "${record.content}" to "${ip}".`)
     }
   });
